@@ -1,0 +1,12 @@
+@font-face{
+  font-family: '图标字体';
+  src:url('../font/iconfont.woff') format('woff');
+}
+
+html {
+  font-size: 13.333333333333vw;
+}
+
+
+
+
