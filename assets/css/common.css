@@ -4,7 +4,8 @@
 }
 
 html {
-  font-size: 13.333333333333vw;
+  font-size: 13.3333333vw !important;
+  box-sizing: border-box;
 }
 
 

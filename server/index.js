@@ -1,6 +1,14 @@
 const Koa = require('koa')
+const router = require('./router')
+const userRouter = require('./router/user')
+
 const consola = require('consola')
 const { Nuxt, Builder } = require('nuxt')
+
+const mongoose = require("mongoose")
+const dbConfig = require("./dbs/config")
+
+
 
 const app = new Koa()
 
@@ -8,14 +16,25 @@ const app = new Koa()
 let config = require('../nuxt.config.js')
 config.dev = !(app.env === 'production')
 
+mongoose.connect(dbConfig.dbs,{
+  useNewUrlParser:true
+})
+
 async function start() {
   // Instantiate nuxt.js
   const nuxt = new Nuxt(config)
 
-  const {
-    host = process.env.HOST || '127.0.0.1',
+  // const {
+  //   host = process.env.HOST || '127.0.0.1',
+  //   port = process.env.PORT || 3000
+  // } = nuxt.options.
+
+
+    host = '192.168.0.107',
     port = process.env.PORT || 3000
-  } = nuxt.options.server
+
+  // app.use(router.routes(),router.allowedMethods());
+  app.use(userRouter.routes(),userRouter.allowedMethods());
 
   // Build in development
   if (config.dev) {
@@ -31,6 +50,12 @@ async function start() {
     ctx.req.ctx = ctx // This might be useful later on, e.g. in nuxtServerInit or with nuxt-stash
     nuxt.render(ctx.req, ctx.res)
   })
+
+
+
+
+
+
 
   app.listen(port, host)
   consola.ready({
