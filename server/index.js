@@ -1,6 +1,6 @@
 const Koa = require('koa')
 const router = require('./router')
-const userRouter = require('./router/user')
+const shopRouter = require('./router/shop')
 
 const consola = require('consola')
 const { Nuxt, Builder } = require('nuxt')
@@ -34,7 +34,7 @@ async function start() {
     port = process.env.PORT || 3000
 
   // app.use(router.routes(),router.allowedMethods());
-  app.use(userRouter.routes(),userRouter.allowedMethods());
+  app.use(shopRouter.routes(),shopRouter.allowedMethods());
 
   // Build in development
   if (config.dev) {
