@@ -17,7 +17,7 @@
     "cube-ui": "^1.12.19",
     "koa": "^2.6.2",
     "koa-router": "^7.4.0",
-    "mongoose": "^5.5.12",
+    "mongoose": "^5.7.5",
     "nuxt": "^2.4.0"
   },
   "devDependencies": {
