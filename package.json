@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "better-scroll": "^1.15.2",
-    "cos-js-sdk-v5": "^0.5.17",
+    "cos-js-sdk-v5": "^1.4.6",
     "cross-env": "^5.2.0",
     "cube-ui": "^1.12.19",
     "koa": "^2.6.2",
